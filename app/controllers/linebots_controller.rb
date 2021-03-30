@@ -15,7 +15,9 @@ def callback
       when Line::Bot::Event::MessageType::Text
         input = event.message['text']
         message = search_and_create_message(input)
-        client.reply_message(event['replyToken'], message)
+        res = client.reply_message(event['replyToken'], message)
+        Rails.logger.fatal res
+        Rails.logger.fatal res.body
       end
     end
   end
