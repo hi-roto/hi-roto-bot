@@ -16,8 +16,6 @@ def callback
         input = event.message['text']
         message = search_and_create_message(input)
         res = client.reply_message(event['replyToken'], message)
-        Rails.logger.fatal res
-        Rails.logger.fatal res.body
       end
     end
   end
